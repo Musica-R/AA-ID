@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import '../styles/About.css';
-import aboutImage from '../assets/about.jpeg';
+import aboutImage from '../assets/about1.jpeg';
 // import { useFadeIn } from "./useFadeIn";
 
 const ICON_CARDS = [
