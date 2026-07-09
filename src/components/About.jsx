@@ -8,7 +8,7 @@ const ICON_CARDS = [
     side: "left",
     order: 0,
     title: "Experience",
-    desc: "Over 3+ years of professional experience, currently practicing at Homworks Prominence.",
+    desc: "An Architect and Interior Designer with 3+ years of professional experience, creating functional and elegant spaces.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <circle cx="12" cy="12" r="9" />

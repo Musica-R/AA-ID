@@ -6,7 +6,7 @@ const FloatingActions = () => {
     <div className="floating-actions">
       {/* WhatsApp */}
       <a
-        href="https://wa.me/919876543210"
+        href="https://wa.me/919626313396"
         target="_blank"
         rel="noopener noreferrer"
         className="fab whatsapp"
@@ -20,7 +20,7 @@ const FloatingActions = () => {
 
       {/* Phone */}
       <a
-        href="tel:+919876543210"
+        href="tel:+919626313396"
         className="fab phone"
         aria-label="Call us"
       >

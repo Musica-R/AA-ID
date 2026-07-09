@@ -14,13 +14,12 @@ const Experience = () => {
           {/* LEFT – MAIN EXPERIENCE */}
           <div className="experience-card primary">
             <h3>Interior Designer</h3>
-            <p className="company">Homworks Prominence</p>
-            <p className="duration">3 Years of Industry Experience</p>
+            <p className="duration">3+ Years of Industry Experience</p>
 
             <p className="description">
-              Currently working as an Interior Designer at <strong>Homworks Prominence</strong>,
-              contributing to residential and commercial interior projects with a strong
-              focus on space planning, material selection, and execution detailing.
+              An Interior Designer with 3+ years of experience in creating residential and
+              commercial spaces, with a strong focus on space planning, material selection,
+              and execution detailing.
             </p>
           </div>
 
