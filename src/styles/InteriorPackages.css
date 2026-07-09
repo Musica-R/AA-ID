@@ -1,0 +1,397 @@
+.interior-pricing {
+  padding: 120px 2rem;
+  background: #f5f7fa;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-family: 'Playfair Display', serif;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  color: #9c6b30;
+}
+
+.pricing-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.plan-card {
+  background: white;
+  border-radius: 16px;
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: fit-content;
+  padding: 1rem;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+  /* box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); */
+}
+
+.plan-badge {
+  position: absolute;
+  top: 2rem;
+  right: -2rem;
+  background: #3498db;
+  color: white;
+  padding: 0.5rem 3rem;
+  transform: rotate(45deg);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.plan-badge.premium {
+  background: #9b59b6;
+}
+
+.plan-header {
+  text-align: center;
+  position: relative;
+}
+
+*{
+  font-family: 'Inter', sans-serif;
+}
+
+.plan-name {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+}
+
+.plan-area {
+  color: #7f8c8d;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.plan-price {
+  margin-bottom: 0.5rem;
+}
+
+.amount {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.period {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  font-weight: 400;
+}
+
+.plan-tax {
+  color: #95a5a6;
+  font-size: 0.9rem;
+}
+
+.plan-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+  margin: 0 2rem;
+}
+
+.plan-inclusions {
+  padding: 2rem;
+}
+
+.inclusions-title {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.accordion-container {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 1.2rem 1rem;
+  background: #f8f9fa;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.accordion-header:hover {
+  background: #e9ecef;
+  color: #3498db;
+}
+
+.accordion-header.expanded {
+  background: #3498db;
+  color: white;
+}
+
+.accordion-icon {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.expanded .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background: white;
+}
+
+.accordion-content.expanded {
+  max-height: 1000px;
+}
+
+.accordion-content ul {
+  list-style: none;
+  padding: 1.5rem;
+  margin: 0;
+}
+
+.accordion-content li {
+  padding: 0.5rem 0;
+  color: #5d6d7e;
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.5;
+}
+
+.accordion-content li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #3498db;
+  font-weight: bold;
+}
+
+.essential-plan .accordion-content li::before {
+  color: #3498db;
+}
+
+.advanced-plan .accordion-content li::before {
+  color: #9b59b6;
+}
+
+.plan-footer {
+  padding: 2rem;
+  padding-top: 0;
+  text-align: center;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.essential-cta {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+}
+
+.essential-cta:hover {
+  background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.advanced-cta {
+  background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+  color: white;
+}
+
+.advanced-cta:hover {
+  background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .plan-inclusions {
+    padding: 1rem;
+  }
+
+  .interior-pricing {
+    padding: 7rem 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .pricing-cards-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .plan-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .interior-pricing {
+    padding: 110px 15px;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: 26px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+
+  .section-subtitle {
+    font-size: 13px;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .pricing-cards-container {
+    gap: 1.5rem;
+  }
+
+  .plan-card {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .plan-header {
+    padding-top: 10px;
+  }
+
+  .plan-name {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .plan-area {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .amount {
+    font-size: 40px;
+  }
+
+  .period {
+    font-size: 16px;
+  }
+
+  .plan-tax {
+    font-size: 13px;
+  }
+
+  .plan-divider {
+    margin: 0 1rem;
+  }
+
+  .plan-inclusions {
+    padding: 1rem;
+  }
+
+  .inclusions-title {
+    font-size: 20px;
+    margin-bottom: 1rem;
+  }
+
+  .accordion-header {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .accordion-content ul {
+    padding: 1rem;
+  }
+
+  .accordion-content li {
+    font-size: 14px;
+    line-height: 1.6;
+    padding-left: 1.3rem;
+  }
+
+  .accordion-icon {
+    font-size: 14px;
+  }
+
+  .plan-footer {
+    padding: 1rem;
+    padding-top: 0;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .plan-badge {
+    top: 18px;
+    right: -34px;
+    font-size: 11px;
+    padding: 5px 38px;
+  }
+}

@@ -1,0 +1,94 @@
+.faq-section {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 20px;
+    background-color: white;
+    position: relative; /* anchors the absolutely-positioned icons */
+}
+
+.faq-title {
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Playfair Display', serif;
+}
+
+.faq-container {
+    border-top: 1px solid #9c6b30;
+}
+
+.faq-item {
+    border-bottom: 1px solid #9c6b30;
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px 0;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: #111827;
+    font-family: 'Inter', sans-serif;
+}
+
+.faq-question:focus {
+    outline: none;
+}
+
+.arrow {
+    font-size: 22px;
+    font-weight: 300;
+    color: #9c6b30;
+}
+
+.faq-answer {
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.faq-answer p {
+    padding: 0 0 20px 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #4b5563;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Decorative side icons — desktop only */
+.faq-icon {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Speech bubble sits at the top-left, above the bulb */
+.faq-icon-top-left {
+    left: -180px;
+    top: 70px;
+}
+
+/* Lightbulb sits at the bottom-left of the FAQ block */
+.faq-icon-left {
+    left: -170px;
+    bottom: 40px;
+}
+
+/* Floor plan sits at the right, roughly mid-height */
+.faq-icon-right {
+    right: -190px;
+    top: 260px;
+}
+
+/* Hide on tablets/mobile since content is only 900px wide and icons sit outside it */
+@media (max-width: 1300px) {
+    .faq-icon {
+        display: none;
+    }
+}

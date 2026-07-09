@@ -1,0 +1,70 @@
+.footer-section {
+    background: #111;
+    color: #ccc;
+    padding: 70px 20px 30px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+/* BRAND */
+.footer-brand h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.footer-brand h3 span {
+    color: #9c6b30;
+}
+
+.footer-brand p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    max-width: 500px;
+    margin: 0 auto 30px;
+    line-height: 1.7;
+    color: #aaa;
+}
+
+/* CONTACT */
+.footer-contact a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: #9c6b30;
+}
+
+/* BOTTOM */
+.footer-bottom {
+    margin-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #777;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .footer-brand h3 {
+        font-size: 24px;
+    }
+
+    .footer-brand p {
+        font-size: 13px;
+    }
+}

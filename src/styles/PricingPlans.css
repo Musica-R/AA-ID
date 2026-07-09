@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+.pp-section {
+  padding: 96px 24px;
+  background: #F3F1EE;
+  text-align: center;
+}
+
+.pp-header {
+  margin-bottom: 56px;
+}
+
+.pp-eyebrow {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #B8863F;
+  margin-bottom: 14px;
+}
+
+.pp-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 46px;
+  font-weight: 700;
+  color: #1E1E1E;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.01em;
+}
+
+.pp-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #6B6355;
+  margin: 0;
+}
+
+.pp-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 28px;
+  max-width: 1140px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.pp-card {
+  position: relative;
+  background: #EDEBE7;
+  border-radius: 28px;
+  width: 330px;
+  padding: 32px 28px 28px 28px;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(20, 20, 20, 0.06);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.pp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 40px rgba(20, 20, 20, 0.14);
+}
+
+.pp-card:focus-visible {
+  outline: 2px solid #B8863F;
+  outline-offset: 3px;
+}
+
+/* Gradient "highlight" card, like the reference image's right-hand card */
+.pp-card--highlight {
+  background: radial-gradient(120% 140% at 100% 0%, #F6C9C0 0%, #EFC7E4 28%, #D9CBEF 52%, #EDEBE7 78%);
+}
+
+.pp-card-top {
+  margin-bottom: 22px;
+}
+
+.pp-sheet-tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #8A5F26;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-bottom: 14px;
+}
+
+.pp-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1E1E1E;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.pp-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 18px 0 6px 0;
+}
+
+.pp-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: #1E1E1E;
+}
+
+.pp-unit {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #6B6355;
+}
+
+.pp-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #5B5750;
+  margin: 0 0 22px 0;
+}
+
+/* Pill-shaped CTA button, sits inside the top colored panel like the reference */
+.pp-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #1B1B1B;
+  color: #F7F4EE;
+  border: none;
+  border-radius: 999px;
+  padding: 15px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, gap 0.2s ease;
+  margin-bottom: 26px;
+}
+
+.pp-cta:hover {
+  background: #B8863F;
+  gap: 12px;
+}
+
+.pp-cta-arrow {
+  font-size: 15px;
+}
+
+/* Feature list sits on a white panel below, matching reference image */
+.pp-features {
+  list-style: none;
+  margin: 0;
+  padding: 22px 24px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex-grow: 1;
+}
+
+.pp-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  color: #2B2B2B;
+  line-height: 1.4;
+}
+
+.pp-tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid #1E1E1E;
+  color: #1E1E1E;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+@media (max-width: 1024px) {
+  .pp-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pp-card {
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pp-title {
+    font-size: 34px;
+  }
+}

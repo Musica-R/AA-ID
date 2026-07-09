@@ -1,0 +1,231 @@
+    /* Subtle vertical tab */
+    .mobile-form-tab {
+        display: flex;
+        position: fixed;
+        top: 100px;
+        right: 0;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        padding:10px 8px;
+        font-size: 12px;
+        letter-spacing: 1px;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-left: none;
+        color: #555;
+        cursor: pointer;
+        z-index: 1001;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Overlay */
+    .form-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.25);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+        z-index: 1000;
+    }
+
+    .form-overlay.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Drawer */
+    .mobile-form-drawer {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 500px;
+        height: 100vh;
+        background: #ffffff;
+        transition: right 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1001;
+        padding: 20px;
+    }
+    
+    #close-btn{
+        position: relative;
+        left: 10px;
+    }
+
+    .mobile-form-drawer.open {
+        right: 0;
+    }
+
+    .drawer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top: 60px;
+    }
+
+    .drawer-header h3 {
+        font-size: 18px;
+        font-weight: 500;
+        color: #111;
+    }
+
+    .drawer-header button {
+        font-size: 22px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #777;
+    }
+
+    /* Inputs */
+    .mobile-form-drawer input,
+    .mobile-form-drawer textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 14px;
+        border: 1px solid #e5e7eb;
+        font-size: 14px;
+        border-radius: 4px;
+        background: #fafafa;
+    }
+
+    .mobile-form-drawer textarea {
+        resize: none;
+        height: 90px;
+    }
+
+    /* Button */
+    .mobile-form-drawer button[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        background: #111827;
+        color: #ffffff;
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-top: 8px;
+    }
+
+    .mobile-form-drawer button[type="submit"]:hover {
+        background: #1f2937;
+    }
+
+    /* Mobile only */
+    @media (max-width: 768px) {
+
+        /* Subtle vertical tab */
+        .mobile-form-tab {
+            display: flex;
+            position: fixed;
+            top: 100px;
+            right: 0;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            padding: 10px 8px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-left: none;
+            color: #555;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Overlay */
+        .form-overlay {
+            display: block;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.25);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .form-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Drawer */
+        .mobile-form-drawer {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 85%;
+            max-width: 360px;
+            height: 100vh;
+            background: #ffffff;
+            transition: left 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1001;
+            padding: 20px;
+        }
+
+        .mobile-form-drawer.open {
+            left: 0;
+        }
+
+        .drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .drawer-header h3 {
+            font-size: 18px;
+            font-weight: 500;
+            color: #111;
+        }
+
+        .drawer-header button {
+            font-size: 22px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #777;
+        }
+
+        /* Inputs */
+        .mobile-form-drawer input,
+        .mobile-form-drawer textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 14px;
+            border: 1px solid #e5e7eb;
+            font-size: 14px;
+            border-radius: 4px;
+            background: #fafafa;
+        }
+
+        .mobile-form-drawer textarea {
+            resize: none;
+            height: 90px;
+        }
+
+        /* Button */
+        .mobile-form-drawer button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background: #111827;
+            color: #ffffff;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+
+        .mobile-form-drawer button[type="submit"]:hover {
+            background: #1f2937;
+        }
+    }

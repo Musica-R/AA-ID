@@ -1,0 +1,273 @@
+.hero {
+    position: relative;
+    height: 900vh;
+}
+
+.hero-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.45));
+    z-index: 1;
+}
+
+/* TITLE OVER FRAMES */
+.hero-title {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: #fff;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+    margin: 0;
+}
+
+.hero-title span {
+    color: #d2a96a;
+}
+
+.hero-title p {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+    color: #fff;
+    display: flex;
+    gap: 20px;
+    width: 70%;
+}
+
+/* BUTTONS */
+.btn-primary {
+    padding: 14px;
+    font-size: 16px;
+    background: #9c6b30;
+    color: #fff;
+    border: 1px solid white;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: bolder;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    width: 40%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(156, 107, 48, 0.45);
+}
+
+.btn-primary1 {
+    padding: 14px;
+    font-size: 14px;
+    background: #9c6b30;
+    border: 1px solid white;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    width: 65%;
+}
+
+.btn-primary1:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(156, 107, 48, 0.45);
+}
+
+/* SCROLL HINT */
+.hero-scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    transition: opacity 0.4s ease;
+}
+
+.hero-scroll-hint.is-hidden {
+    opacity: 0;
+}
+
+/* LOADER */
+.hero-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: #080808;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.hero-loader__brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.hero-loader__brand span {
+    color: #d2a96a;
+}
+
+.hero-loader__track {
+    width: 220px;
+    height: 3px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.hero-loader__fill {
+    height: 100%;
+    background: #d2a96a;
+    transition: width 0.15s ease;
+}
+
+.hero-loader__pct {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .hero-title h1 {
+        font-size: 48px;
+    }
+
+    .hero-title p {
+        font-size: 15px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-primary1 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        height: 900vh; /* shorter scroll distance on small screens */
+    }
+
+    .hero-title h1 {
+        font-size: 40px;
+    }
+
+    .hero-title p {
+        font-size: 12px;
+    }
+}
+
+/* Mobile - 400px */
+@media (max-width: 400px) {
+
+    .hero {
+        height: 900vh;
+    }
+
+    .hero-title {
+        gap: 12px;
+        padding: 0 16px;
+    }
+
+    .hero-title h1 {
+        font-size: 30px;
+        line-height: 1.2;
+        letter-spacing: 1px;
+    }
+
+    .hero-title p {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        line-height: 1.6;
+    }
+
+    .hero-content {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+        padding: 0 20px;
+        align-items: center;
+    }
+
+    .btn-primary,
+    .btn-primary1 {
+        width: 100%;
+        max-width: 280px;
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+
+    .hero-scroll-hint {
+        bottom: 25px;
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .hero-loader__brand {
+        font-size: 24px;
+    }
+
+    .hero-loader__track {
+        width: 180px;
+    }
+
+    .hero-loader__pct {
+        font-size: 12px;
+    }
+}
