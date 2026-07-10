@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../styles/ArchitectureTable.css';
 import { FaCheck, FaTimes } from 'react-icons/fa';
 // import { useNavigate } from 'react-router-dom';
-import { FaChevronDown, FaChevronUp, FaArrowLeft } from 'react-icons/fa';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 const ArchitectureTable = () => {
   const [expandedSections, setExpandedSections] = useState({
@@ -94,7 +94,7 @@ const ArchitectureTable = () => {
         <FaArrowLeft />
         <span>Back to Plans</span>
       </button> */}
-      
+
       <div className="section-header1">
         <h1 className="section-title1">ARCHITECTURAL DESIGN PACKAGE</h1>
         <p className="section-subtitle1">Professional architectural solutions for your dream home</p>
@@ -184,23 +184,26 @@ const ArchitectureTable = () => {
           <div className="plan-footer1 essential-footer1">
          
              <a
-              href="https://wa.me/919047788033?text=Hello, I'd like to proceed with booking the Essential Plan for Architectural Design."
+              href="https://wa.me/919626313369?text=Hello, I'd like to proceed with booking the Essential Plan for Architectural Design."
               target="_blank"
               rel="noopener noreferrer"
               className="cta-button1 essential-button1"
             >
               Get Quote
             </a>
+
           </div>
           <div className="plan-footer1 advanced-footer1">
+
             <a
-              href="https://wa.me/919047788033?text=Hello, I'd like to proceed with booking the Advanced Plan for Architectural Design."
+              href="https://wa.me/919626313369?text=Hello, I'd like to proceed with booking the Advanced Plan for Architectural Design."
               target="_blank"
               rel="noopener noreferrer"
               className="cta-button1 advanced-button1"
             >
               Get Quote
             </a>
+
           </div>
         </div>
       </div>

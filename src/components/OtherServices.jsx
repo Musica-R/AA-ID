@@ -52,7 +52,7 @@ const OtherServices = () => {
 
           <div className="service-footer">
             
-            <a  href="https://wa.me/919047788033?text=Hello, I'd like to proceed with booking the Plan for Elevation Design."
+            <a  href="https://wa.me/919626313369?text=Hello, I'd like to proceed with booking the Plan for Elevation Design."
               target="_blank"
               rel="noopener noreferrer"
               className="cta-button elevation-cta"

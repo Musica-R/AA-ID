@@ -61,7 +61,7 @@ const MobileQuickForm = () => {
 
     if (!validate()) return;
 
-    const whatsappNumber = "919626313396"; // country code + number
+    const whatsappNumber = "919626313369"; // country code + number
 
     const text = `New Enquiry:
 Name: ${formData.name}

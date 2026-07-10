@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import '../styles/InteriorPackages.css';
-import { useNavigate } from 'react-router-dom';
-import { FaChevronDown, FaChevronUp, FaArrowLeft } from 'react-icons/fa';
+// import { useNavigate } from 'react-router-dom';
+import { FaChevronDown, FaChevronUp} from 'react-icons/fa';
 
 const InteriorPackages = () => {
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [expandedItems, setExpandedItems] = useState({
     essential: {},
@@ -196,7 +196,7 @@ const InteriorPackages = () => {
 
           <div className="plan-footer">
 
-            <a href="https://wa.me/919047788033?text=Hello, I'd like to proceed with booking the Essential Plan for Interior design."
+            <a href="https://wa.me/919626313369?text=Hello, I'd like to proceed with booking the Essential Plan for Interior design."
               target="_blank"
               rel="noopener noreferrer"
               className="cta-button essential-cta"
@@ -265,7 +265,7 @@ const InteriorPackages = () => {
 
           <div className="plan-footer">
 
-            <a href="https://wa.me/919047788033?text=Hello, I'd like to proceed with booking the Advanced Plan for Interior design."
+            <a href="https://wa.me/919626313369?text=Hello, I'd like to proceed with booking the Advanced Plan for Interior design."
               target="_blank"
               rel="noopener noreferrer"
               className="cta-button advanced-cta"
