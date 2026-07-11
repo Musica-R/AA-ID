@@ -14,6 +14,7 @@ import BeforeAfterCards from "../components/BeforeAfterCards";
 import PricingPlans from "../components/PricingPlans";
 import "../styles/styles.css";
 import { useLocation } from "react-router-dom";
+import ProcessFlow from "../components/Process";
 
 export default function Home() {
   const pricingRef = useRef(null);
@@ -52,6 +53,7 @@ export default function Home() {
       <PricingPlans ref={pricingRef} />
       <Experience />
       <BeforeAfterCards />
+      <ProcessFlow />
       <Faq />
       <Gallery />
       <Contact />
