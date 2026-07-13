@@ -1,17 +1,30 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import "../styles/Hero.css";
 
-const TOTAL_FRAMES = 200; // you have 240 images
-const START_INDEX = 1;   // your files start at 001, not 000
+// ─────────────────────────────────────────────
+//  FRAME CONFIG — differs by device
+// ─────────────────────────────────────────────
+const DESKTOP_TOTAL_FRAMES = 200;
+const DESKTOP_START_INDEX = 1;
+
+const MOBILE_TOTAL_FRAMES = 176; // adjust to however many mobile frames you actually have (200 - 24)
+const MOBILE_START_INDEX = 25;
+
+const MOBILE_BREAKPOINT = 768;
+
 const FRAME_PATH = (n) =>
-    `/frame/ezgif-frame-${String(n).padStart(3, "0")}.png`; // matches ezgif-frame-001.png style
+    `/frame/ezgif-frame-${String(n).padStart(3, "0")}.png`;
 
 const CONCURRENCY = 6;
-
 const SMOOTHING = 0.045;
 
+function isMobileViewport() {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`).matches;
+}
+
 // ─────────────────────────────────────────────
-//  HELPERS
+//  HELPERS (unchanged)
 // ─────────────────────────────────────────────
 function lerp(a, b, t) { return a + (b - a) * t; }
 function clamp(v, lo, hi) { return Math.min(Math.max(v, lo), hi); }
@@ -45,6 +58,15 @@ async function loadFrames(total, startIndex, onProgress) {
 //  COMPONENT
 // ─────────────────────────────────────────────
 export default function Hero() {
+    // Decide device config ONCE, synchronously, before anything loads
+    const configRef = useRef(
+        isMobileViewport()
+            ? { total: MOBILE_TOTAL_FRAMES, start: MOBILE_START_INDEX }
+            : { total: DESKTOP_TOTAL_FRAMES, start: DESKTOP_START_INDEX }
+    );
+    const TOTAL_FRAMES = configRef.current.total;
+    const START_INDEX = configRef.current.start;
+
     const sectionRef = useRef(null);
     const stickyRef = useRef(null);
     const canvasRef = useRef(null);
@@ -60,7 +82,12 @@ export default function Hero() {
     const [ready, setReady] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
+    // ...rest of your component stays exactly the same, just replace
+    // every reference to TOTAL_FRAMES / START_INDEX (module constants)
+    // with the local const versions declared above.
+
     // ── Draw a single frame onto the canvas, cropped to cover ──
+
     const drawFrame = useCallback((index) => {
         const img = framesRef.current[index];
         const canvas = canvasRef.current;
@@ -89,6 +116,7 @@ export default function Hero() {
         ctx.drawImage(img, sx, sy, sw, sh, 0, 0, cw, ch);
     }, []);
 
+
     // ── Keep canvas pixel size matched to its displayed size ──
     const resizeCanvas = useCallback(() => {
         const canvas = canvasRef.current;
@@ -112,6 +140,9 @@ export default function Hero() {
 
         drawFrame(frameIdxRef.current);
     }, [drawFrame]);
+
+
+
 
     // ── How far the user has scrolled through the pinned section (0-1) ──
     const getScrollProgress = useCallback(() => {
@@ -151,37 +182,37 @@ export default function Hero() {
         if (next > 0.02) setScrolled(true);
     }, [drawFrame]);
 
-   
+
     useEffect(() => {
-    const prevRestoration = window.history.scrollRestoration;
+        const prevRestoration = window.history.scrollRestoration;
 
-    if ("scrollRestoration" in window.history) {
-        window.history.scrollRestoration = "manual";
-    }
-
-    const forceTop = () => {
-        window.scrollTo(0, 0);
-        progressRef.current = 0;
-        targetRef.current = 0;
-        frameIdxRef.current = 0;
-    };
-
-    forceTop();
-    requestAnimationFrame(forceTop);
-    window.addEventListener("load", forceTop);
-    const timeouts = [50, 150, 300, 600].map((ms) =>
-        setTimeout(forceTop, ms)
-    );
-
-    return () => {
         if ("scrollRestoration" in window.history) {
-            window.history.scrollRestoration = prevRestoration;
+            window.history.scrollRestoration = "manual";
         }
-        window.removeEventListener("load", forceTop);
-        timeouts.forEach(clearTimeout);
-    };
-}, []);
-  
+
+        const forceTop = () => {
+            window.scrollTo(0, 0);
+            progressRef.current = 0;
+            targetRef.current = 0;
+            frameIdxRef.current = 0;
+        };
+
+        forceTop();
+        requestAnimationFrame(forceTop);
+        window.addEventListener("load", forceTop);
+        const timeouts = [50, 150, 300, 600].map((ms) =>
+            setTimeout(forceTop, ms)
+        );
+
+        return () => {
+            if ("scrollRestoration" in window.history) {
+                window.history.scrollRestoration = prevRestoration;
+            }
+            window.removeEventListener("load", forceTop);
+            timeouts.forEach(clearTimeout);
+        };
+    }, []);
+
 
     useEffect(() => {
         const onScroll = () => {

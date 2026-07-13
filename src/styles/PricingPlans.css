@@ -130,6 +130,39 @@
   margin: 0 0 22px 0;
 }
 
+/* Multi-tier price list — used by cards with more than one price point
+   (Interior Stylist, Full House Moodboards) instead of a single pp-price-row */
+.pp-tiers {
+  display: flex;
+  flex-direction: column;
+  margin: 18px 0 6px 0;
+  border-top: 1px solid rgba(30, 30, 30, 0.08);
+}
+
+.pp-tier-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(30, 30, 30, 0.08);
+}
+
+.pp-tier-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #4A463F;
+}
+
+.pp-tier-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #1E1E1E;
+  white-space: nowrap;
+}
+
 /* Pill-shaped CTA button, sits inside the top colored panel like the reference */
 .pp-cta {
   display: flex;

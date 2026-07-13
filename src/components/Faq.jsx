@@ -3,9 +3,9 @@ import "../styles/Faq.css";
 
 const faqData = [
     {
-        question: "What does Studio Spatia offer?",
+        question: "What does AA&ID offer?",
         answer:
-            "Studio Spatia provides consultative architecture and interior design services online. We specialize in concept development, spatial planning, and design strategy—without execution / physical construction or procurement."
+            "AA&ID provides consultative architecture and interior design services online. We specialize in concept development, spatial planning, and design strategy—without execution / physical construction or procurement."
     },
     {
         question: "How is your service delivered?",
@@ -15,7 +15,7 @@ const faqData = [
     {
         question: "Do you take on-site measurements or supervise construction?",
         answer:
-            "No. Studio Spatia operates as a remote design partner. We guide clients through design decisions but do not conduct site visits, supervise execution, or coordinate vendors."
+            "No. AA&ID operates as a remote design partner. We guide clients through design decisions but do not conduct site visits, supervise execution, or coordinate vendors."
     },
     {
         question: "What do I need to get started?",
@@ -43,7 +43,7 @@ const faqData = [
             "Absolutely. We follow strict confidentiality protocols and never share client data or project details without consent."
     },
     {
-        question: "How do I contact Studio Spatia?",
+        question: "How do I contact AA&ID?",
         answer:
             "You can reach us at +91 90477 88033 or contactus@studiospatia.com. We typically respond within 1–2 business days."
     },
