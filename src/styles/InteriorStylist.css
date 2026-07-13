@@ -1,0 +1,280 @@
+.stylist-pricing {
+  padding: 120px 2rem;
+  background: #f5f7fa;
+  position: relative;
+}
+
+.stylist-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.stylist-section-title {
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-family: 'Playfair Display', serif;
+}
+
+.stylist-section-subtitle {
+  font-size: 14px;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  color: #9c6b30;
+}
+
+.stylist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.stylist-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: fit-content;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+}
+
+.stylist-card:hover {
+  transform: translateY(-5px);
+}
+
+.stylist-card-header {
+  text-align: center;
+  position: relative;
+}
+
+.stylist-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  background: #eaf4fc;
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.stylist-card--premium .stylist-tag {
+  background: #f5eefa;
+  color: #9b59b6;
+}
+
+.stylist-title {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+}
+
+.stylist-description {
+  color: #7f8c8d;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.stylist-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.stylist-amount {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.stylist-tax {
+  color: #95a5a6;
+  font-size: 0.9rem;
+}
+
+.stylist-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+  margin: 1.5rem 0;
+}
+
+.stylist-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  flex-grow: 1;
+}
+
+.stylist-features li {
+  padding: 0.5rem 0;
+  color: #5d6d7e;
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.stylist-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #3498db;
+  font-weight: bold;
+}
+
+.stylist-card--premium .stylist-features li::before {
+  color: #9b59b6;
+}
+
+.stylist-footer {
+  margin-top: auto;
+  text-align: center;
+}
+
+.stylist-cta {
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+}
+
+.stylist-cta:hover {
+  background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.stylist-card--premium .stylist-cta {
+  background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+}
+
+.stylist-card--premium .stylist-cta:hover {
+  background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+  box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stylist-pricing {
+    padding: 7rem 1rem;
+  }
+
+  .stylist-section-title {
+    font-size: 2rem;
+  }
+
+  .stylist-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .stylist-card {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stylist-pricing {
+    padding: 110px 15px;
+  }
+
+  .stylist-section-header {
+    margin-bottom: 2rem;
+  }
+
+  .stylist-section-title {
+    font-size: 26px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+
+  .stylist-section-subtitle {
+    font-size: 13px;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .stylist-grid {
+    gap: 1.5rem;
+  }
+
+  .stylist-card {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .stylist-card-header {
+    padding-top: 10px;
+  }
+
+  .stylist-tag {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.8rem;
+  }
+
+  .stylist-title {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .stylist-description {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .stylist-amount {
+    font-size: 40px;
+  }
+
+  .stylist-tax {
+    font-size: 13px;
+  }
+
+  .stylist-divider {
+    margin: 1rem 0;
+  }
+
+  .stylist-features li {
+    font-size: 14px;
+    line-height: 1.6;
+    padding-left: 1.3rem;
+  }
+
+  .stylist-footer {
+    padding-top: 0;
+  }
+
+  .stylist-cta {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px;
+    font-size: 15px;
+  }
+}

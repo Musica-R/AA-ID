@@ -1,0 +1,227 @@
+.moodboard-pricing {
+  padding: 120px 2rem;
+  background: #f5f7fa;
+  position: relative;
+}
+
+.moodboard-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.moodboard-section-title {
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-family: 'Playfair Display', serif;
+}
+
+.moodboard-section-subtitle {
+  font-size: 14px;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  color: #9c6b30;
+}
+
+.moodboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.moodboard-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: fit-content;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+.moodboard-card:hover {
+  transform: translateY(-5px);
+}
+
+.moodboard-card-header {
+  text-align: center;
+  position: relative;
+}
+
+.moodboard-title {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.moodboard-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.moodboard-amount {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.moodboard-tax {
+  color: #95a5a6;
+  font-size: 0.85rem;
+}
+
+.moodboard-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+  margin: 1.25rem 0;
+}
+
+.moodboard-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.moodboard-features li {
+  padding: 0.4rem 0;
+  color: #5d6d7e;
+  position: relative;
+  padding-left: 1.4rem;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.moodboard-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #3498db;
+  font-weight: bold;
+}
+
+.moodboard-footer {
+  margin-top: auto;
+  text-align: center;
+}
+
+.moodboard-cta {
+  display: inline-block;
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+}
+
+.moodboard-cta:hover {
+  background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .moodboard-pricing {
+    padding: 7rem 1rem;
+  }
+
+  .moodboard-section-title {
+    font-size: 2rem;
+  }
+
+  .moodboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .moodboard-card {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .moodboard-pricing {
+    padding: 110px 15px;
+  }
+
+  .moodboard-section-header {
+    margin-bottom: 2rem;
+  }
+
+  .moodboard-section-title {
+    font-size: 26px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+
+  .moodboard-section-subtitle {
+    font-size: 13px;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .moodboard-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .moodboard-card {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .moodboard-title {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .moodboard-amount {
+    font-size: 32px;
+  }
+
+  .moodboard-tax {
+    font-size: 13px;
+  }
+
+  .moodboard-divider {
+    margin: 1rem 0;
+  }
+
+  .moodboard-features li {
+    font-size: 13px;
+    line-height: 1.6;
+    padding-left: 1.2rem;
+  }
+
+  .moodboard-footer {
+    padding-top: 0;
+  }
+
+  .moodboard-cta {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+}

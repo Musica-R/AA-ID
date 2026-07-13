@@ -124,13 +124,7 @@ const InteriorPackages = () => {
 
   return (
     <section className="interior-pricing" id="interior">
-      {/* <button
-        className="back-button1"
-        onClick={() => navigate('/price')}
-      >
-        <FaArrowLeft />
-        <span>Back to Plans</span>
-      </button> */}
+
       <div className="section-header">
         <h1 className="section-title">SELECT YOUR INTERIOR DESIGN PACKAGE</h1>
         <p className="section-subtitle">Transform your spaces with professional interior design solutions</p>

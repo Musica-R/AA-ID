@@ -93,6 +93,10 @@ const plans = [
 const PricingPlans = forwardRef((props, ref) => {
   const navigate = useNavigate();
 
+  const goToSection = (plan) => {
+    navigate(plan.path, { state: { section: plan.key } });
+  };
+
   return (
     <section ref={ref} className="pp-section" id="pricing">
       <div className="pp-header">
@@ -106,11 +110,11 @@ const PricingPlans = forwardRef((props, ref) => {
           <div
             key={plan.key}
             className={`pp-card ${plan.highlight ? 'pp-card--highlight' : ''}`}
-            onClick={() => navigate(plan.path)}
+            onClick={() => goToSection(plan)}
             role="button"
             tabIndex={0}
             onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') navigate(plan.path);
+              if (e.key === 'Enter' || e.key === ' ') goToSection(plan);
             }}
           >
             <div className="pp-card-top">
@@ -140,7 +144,7 @@ const PricingPlans = forwardRef((props, ref) => {
               className="pp-cta"
               onClick={(e) => {
                 e.stopPropagation();
-                navigate(plan.path);
+                goToSection(plan);
               }}
             >
               {plan.cta}

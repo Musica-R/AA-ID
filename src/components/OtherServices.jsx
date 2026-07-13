@@ -30,7 +30,7 @@ const OtherServices = () => {
             <div className="offer-tag">Starting From</div>
             <div className="service-price">
               <span className="old-price">₹10,000</span>
-              <span className="new-price">₹5,999*</span>
+              <span className="new-price">₹3,999*</span>
             </div>
             <div className="service-tax">Taxes Excluded</div>
           </div>

@@ -77,10 +77,6 @@
   background: radial-gradient(120% 140% at 100% 0%, #F6C9C0 0%, #EFC7E4 28%, #D9CBEF 52%, #EDEBE7 78%);
 }
 
-.pp-card-top {
-  margin-bottom: 22px;
-}
-
 .pp-sheet-tag {
   display: inline-block;
   font-family: 'Inter', sans-serif;
