@@ -13,7 +13,7 @@ const Experience = () => {
 
           {/* LEFT – MAIN EXPERIENCE */}
           <div className="experience-card primary">
-            <h3>Interior Designer</h3>
+            <h3>Architect</h3>
             <p className="duration">3+ Years of Industry Experience</p>
 
             <p className="description">

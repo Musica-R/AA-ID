@@ -5,6 +5,7 @@ import InteriorPackages from '../components/InteriorPackages'
 import OtherServices from '../components/OtherServices'
 import InteriorStylist from '../components/Interiorstylist'
 import FullHouseMoodboards from '../components/Fullhousemoodboards'
+import FalseCeiling from '../components/FalseCeiling'
 
 export default function Price() {
   const location = useLocation();
@@ -27,6 +28,7 @@ export default function Price() {
         <OtherServices />
         <InteriorStylist />
         <FullHouseMoodboards />
+        <FalseCeiling />
     </div>
   )
 }

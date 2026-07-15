@@ -82,11 +82,27 @@ const plans = [
     ],
     features: [
       'Room-wise mood boards',
-      'Colour & texture palette', 
+      'Colour & texture palette',
     ],
     cta: 'View plans',
     path: '/price',
     highlight: true
+  },
+  {
+    key: 'ceiling',
+    sheet: 'F—06',
+    title: 'False Ceiling',
+    price: '₹95',
+    unit: '/ sqft',
+    tagline: 'For a refined, layered ceiling finish',
+    features: [
+      'Gypsum & POP design options',
+      'Cove & spot lighting layout',
+      'Material & finish specs'
+    ],
+    cta: 'View plans',
+    path: '/price',
+    highlight: false
   }
 ];
 
