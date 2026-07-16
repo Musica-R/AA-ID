@@ -12,6 +12,9 @@ const MOBILE_START_INDEX = 25;
 
 const MOBILE_BREAKPOINT = 768;
 
+// How long the auto-play runs on mobile once frames are ready (ms)
+const MOBILE_AUTOPLAY_DURATION = 2600;
+
 const FRAME_PATH = (n) =>
     `/frame/ezgif-frame-${String(n).padStart(3, "0")}.png`;
 
@@ -61,11 +64,12 @@ export default function Hero() {
     // Decide device config ONCE, synchronously, before anything loads
     const configRef = useRef(
         isMobileViewport()
-            ? { total: MOBILE_TOTAL_FRAMES, start: MOBILE_START_INDEX }
-            : { total: DESKTOP_TOTAL_FRAMES, start: DESKTOP_START_INDEX }
+            ? { total: MOBILE_TOTAL_FRAMES, start: MOBILE_START_INDEX, isMobile: true }
+            : { total: DESKTOP_TOTAL_FRAMES, start: DESKTOP_START_INDEX, isMobile: false }
     );
     const TOTAL_FRAMES = configRef.current.total;
     const START_INDEX = configRef.current.start;
+    const IS_MOBILE = configRef.current.isMobile;
 
     const sectionRef = useRef(null);
     const stickyRef = useRef(null);
@@ -82,12 +86,7 @@ export default function Hero() {
     const [ready, setReady] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
-    // ...rest of your component stays exactly the same, just replace
-    // every reference to TOTAL_FRAMES / START_INDEX (module constants)
-    // with the local const versions declared above.
-
     // ── Draw a single frame onto the canvas, cropped to cover ──
-
     const drawFrame = useCallback((index) => {
         const img = framesRef.current[index];
         const canvas = canvasRef.current;
@@ -116,7 +115,6 @@ export default function Hero() {
         ctx.drawImage(img, sx, sy, sw, sh, 0, 0, cw, ch);
     }, []);
 
-
     // ── Keep canvas pixel size matched to its displayed size ──
     const resizeCanvas = useCallback(() => {
         const canvas = canvasRef.current;
@@ -141,10 +139,8 @@ export default function Hero() {
         drawFrame(frameIdxRef.current);
     }, [drawFrame]);
 
-
-
-
     // ── How far the user has scrolled through the pinned section (0-1) ──
+    // Desktop only — mobile never derives progress from scroll.
     const getScrollProgress = useCallback(() => {
         const section = sectionRef.current;
         if (!section) return 0;
@@ -156,11 +152,13 @@ export default function Hero() {
 
         const scrolled = scrollY - sectionTop;
         const scrollable = sectionHeight - viewH;
+        if (scrollable <= 0) return 0;
 
         return clamp(scrolled / scrollable, 0, 1);
     }, []);
 
     // ── Animation loop: smoothly chase the scroll target, pick a frame ──
+    // Desktop only.
     const tick = useCallback(() => {
         rafRef.current = requestAnimationFrame(tick);
         if (!isReadyRef.current) return;
@@ -182,8 +180,12 @@ export default function Hero() {
         if (next > 0.02) setScrolled(true);
     }, [drawFrame]);
 
-
+    // ── Force scroll to top on mount/refresh (desktop only — mobile has no
+    //    long pinned track to protect, and fighting the user's scroll here
+    //    is exactly what caused the "stuck" feeling on mobile) ──
     useEffect(() => {
+        if (IS_MOBILE) return;
+
         const prevRestoration = window.history.scrollRestoration;
 
         if ("scrollRestoration" in window.history) {
@@ -211,17 +213,19 @@ export default function Hero() {
             window.removeEventListener("load", forceTop);
             timeouts.forEach(clearTimeout);
         };
-    }, []);
+    }, [IS_MOBILE]);
 
-
+    // ── Scroll listener that drives the animation target — desktop only ──
     useEffect(() => {
+        if (IS_MOBILE) return;
+
         const onScroll = () => {
             if (!isReadyRef.current) return;
             targetRef.current = getScrollProgress();
         };
         window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
-    }, [getScrollProgress]);
+    }, [IS_MOBILE, getScrollProgress]);
 
     // ── Preload all frames once on mount ──
     useEffect(() => {
@@ -233,7 +237,9 @@ export default function Hero() {
             if (cancelled) return;
             framesRef.current = frames;
 
-            window.scrollTo(0, 0);
+            if (!IS_MOBILE) {
+                window.scrollTo(0, 0);
+            }
             progressRef.current = 0;
             targetRef.current = 0;
             frameIdxRef.current = 0;
@@ -245,11 +251,46 @@ export default function Hero() {
         return () => { cancelled = true; };
     }, [drawFrame]);
 
-    // ── Start the RAF loop ──
+    // ── Start the RAF chase loop — desktop only ──
     useEffect(() => {
+        if (IS_MOBILE) return;
         rafRef.current = requestAnimationFrame(tick);
         return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
-    }, [tick]);
+    }, [IS_MOBILE, tick]);
+
+    // ── Mobile: auto-play through the frames once, then hand control
+    //    back to normal page scrolling. No scroll hijacking at all. ──
+    useEffect(() => {
+        if (!IS_MOBILE || !ready) return;
+
+        let cancelled = false;
+        const start = performance.now();
+
+        const step = (now) => {
+            if (cancelled) return;
+            const elapsed = now - start;
+            const t = clamp(elapsed / MOBILE_AUTOPLAY_DURATION, 0, 1);
+            const eased = easeInOutCubic(t);
+            const fi = clamp(Math.round(eased * (TOTAL_FRAMES - 1)), 0, TOTAL_FRAMES - 1);
+
+            if (fi !== frameIdxRef.current) {
+                frameIdxRef.current = fi;
+                drawFrame(fi);
+            }
+
+            if (t < 1) {
+                rafRef.current = requestAnimationFrame(step);
+            } else {
+                setScrolled(true);
+            }
+        };
+
+        rafRef.current = requestAnimationFrame(step);
+        return () => {
+            cancelled = true;
+            if (rafRef.current) cancelAnimationFrame(rafRef.current);
+        };
+    }, [IS_MOBILE, ready, drawFrame]);
 
     // ── Keep canvas sized correctly ──
     useEffect(() => {
@@ -268,7 +309,7 @@ export default function Hero() {
     }, [resizeCanvas]);
 
     return (
-        <section className="hero" ref={sectionRef}>
+        <section className={`hero${IS_MOBILE ? " hero--mobile" : ""}`} ref={sectionRef}>
 
             {!ready && (
                 <div className="hero-loader">
@@ -290,9 +331,11 @@ export default function Hero() {
                     <p>Architecture & Interior Design</p>
                 </div>
 
-                <div className={`hero-scroll-hint${scrolled ? " is-hidden" : ""}`}>
-                    <span>scroll</span>
-                </div>
+                {!IS_MOBILE && (
+                    <div className={`hero-scroll-hint${scrolled ? " is-hidden" : ""}`}>
+                        <span>scroll</span>
+                    </div>
+                )}
             </div>
         </section>
     );

@@ -270,4 +270,9 @@
         top: 10px;
         right: 10px;
     }
+
+    .gallery-section {
+        padding: 0px 20px 20px 20px;
+    }
+
 }

@@ -3,6 +3,13 @@
     height: 900vh;
 }
 
+/* MOBILE: no scroll-scrubbing, so no long pinned track — this behaves
+   like a normal full-height section that autoplays once and then
+   scrolls away naturally. */
+.hero--mobile {
+    height: 100vh;
+}
+
 .hero-sticky {
     position: sticky;
     top: 0;
@@ -200,10 +207,6 @@
 }
 
 @media (max-width: 576px) {
-    .hero {
-        height: 900vh; /* shorter scroll distance on small screens */
-    }
-
     .hero-title h1 {
         font-size: 40px;
     }
@@ -215,10 +218,6 @@
 
 /* Mobile - 400px */
 @media (max-width: 400px) {
-
-    .hero {
-        height: 900vh;
-    }
 
     .hero-title {
         gap: 12px;
@@ -251,12 +250,6 @@
         max-width: 280px;
         padding: 14px 20px;
         font-size: 14px;
-    }
-
-    .hero-scroll-hint {
-        bottom: 25px;
-        font-size: 10px;
-        letter-spacing: 2px;
     }
 
     .hero-loader__brand {

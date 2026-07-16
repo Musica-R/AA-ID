@@ -241,4 +241,7 @@
   .pp-title {
     font-size: 34px;
   }
+  .pp-section {
+    padding: 26px 24px;
+  }
 }
